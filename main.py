@@ -135,7 +135,14 @@ class MarketAreaCrawler:
         try:
             async with self.session.get(url) as response:
                 if response.status == 200:
-                    return await response.text()
+                    # Prova prima con encoding automatico
+                    try:
+                        return await response.text()
+                    except UnicodeDecodeError:
+                        # Se fallisce, usa encoding latin-1 come fallback
+                        logger.warning(f"Problemi encoding per {url}, uso latin-1")
+                        content = await response.read()
+                        return content.decode('latin-1', errors='ignore')
                 else:
                     logger.warning(f"Status {response.status} per {url}")
                     return None
