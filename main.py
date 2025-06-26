@@ -321,7 +321,7 @@ async def main():
             report = crawler.generate_market_report(all_articles)
             
             # Salva risultati
-            with open('market_sentiment_report.json', 'w', encoding='utf-8') as f:
+            with open('reports/market_sentiment_report.json', 'w', encoding='utf-8') as f:
                 json.dump(report, f, ensure_ascii=False, indent=2)
             
             # Mostra summary
@@ -341,7 +341,7 @@ async def main():
             for key, data in report['market_location_matrix'].items():
                 print(f"{data['market'].upper()} in {data['location'].upper()}: {data['average_sentiment']:.1f} ({data['sentiment_trend']}) - {data['article_count']} articoli")
             
-            print(f"\nReport completo salvato in: market_sentiment_report.json")
+            print(f"\nReport completo salvato in: reports/market_sentiment_report.json")
         else:
             print("Nessun articolo rilevante trovato.")
 

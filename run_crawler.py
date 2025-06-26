@@ -42,7 +42,7 @@ async def run_analysis():
 
             # Salva report dettagliato
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            filename = f'market_sentiment_{timestamp}.json'
+            filename = f'reports/market_sentiment_{timestamp}.json'
 
             with open(filename, 'w', encoding='utf-8') as f:
                 json.dump(report, f, ensure_ascii=False, indent=2)
@@ -66,7 +66,7 @@ async def run_analysis():
                     '...' if len(article.content) > 200 else article.content
                 })
 
-            articles_filename = f'articles_{timestamp}.json'
+            articles_filename = f'reports/articles_{timestamp}.json'
             with open(articles_filename, 'w', encoding='utf-8') as f:
                 json.dump(articles_data, f, ensure_ascii=False, indent=2)
 

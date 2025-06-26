@@ -66,6 +66,9 @@ market_sentiment_*.json
 articles_*.json
 *.log
 
+# Reports directory
+reports/
+
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
