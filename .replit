@@ -1,7 +1,7 @@
 modules = ["python-3.11"]
 [nix]
 channel = "stable-24_05"
-packages = ["xcodebuild", "zlib"]
+packages = ["xcodebuild", "zlib", "vim"]
 
 [workflows]
 runButton = "Run Crawler"
